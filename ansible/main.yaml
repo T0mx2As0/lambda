@@ -1,0 +1,23 @@
+---
+
+- name: Hardening
+  gather_facts: false
+  become: true
+  hosts: all
+  tasks:
+    - name: Update
+      apt:
+        update_cache: yes
+    
+    - name: install htop
+      apt:
+        name: htop
+        state: latest
+
+    - name: install Stress
+      apt:
+        name: stress
+        state: latest
+
+    - name: run stress 
+      command: < stress -c 2 --timeout 10m &
