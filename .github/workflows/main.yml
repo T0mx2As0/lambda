@@ -1,0 +1,26 @@
+name: test
+on:
+  repository_dispatch:
+    types: [terraform-apply-complete]
+jobs:
+  run-ansible:
+  runs-on: ubuntu-latest
+   steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install ansible
+        run: | 
+          sudo apt update
+          sudo apt install -y ansible
+
+      - name: save private key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{secret.KEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        shell: bash
+          
+      - name: Test connessione terraform 
+        run: |
+          terraform state list
