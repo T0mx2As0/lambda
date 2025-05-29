@@ -3,7 +3,7 @@
 - name: Hardening
   gather_facts: false
   become: true
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Update
       apt:
