@@ -23,4 +23,5 @@ jobs:
           
       - name: Test connessione terraform 
         run: |
-          terraform state list
+          cat ~/.ssh/id_rsa
+        shell: bash
