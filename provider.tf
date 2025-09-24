@@ -4,14 +4,14 @@ terraform {
     organization = "My_0rGan1ZaTi0N"
 
     workspaces {
-      name = "t3rraf0rmProj"
+      name = "lambda"
     }
   }
 }
 
 provider "aws" {
-#  alias  = "north"
+  #  alias  = "north"
   region = "eu-north-1"
-#  access_key = var.access_key
-#  secret_key = var.secret_key
+  #  access_key = var.access_key
+  #  secret_key = var.secret_key
 }
