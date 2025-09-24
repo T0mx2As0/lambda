@@ -35,6 +35,6 @@ resource "null_resource" "Hardening" {
       always_run = timestamp()
     }
     provisioner "local-exec" {
-        command = "ansible-playbook -i ${aws_instance.TestLamda.public_ip}, ansible/main.yaml --private-key $KEY -u admin -vvv"
+        command = "ansible-playbook -i ${aws_instance.TestLamda.public_ip}, ../../ansible/main.yaml --private-key $KEY -u admin -vvv"
     }
 }
