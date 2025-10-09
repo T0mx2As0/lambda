@@ -1,9 +1,8 @@
 ---
-
 - name: Hardening
-  gather_facts: false
+  gather_facts: true
   become: true
-  hosts: localhost
+  hosts: all
   tasks:
     - name: Update
       apt:
@@ -19,5 +18,5 @@
         name: stress
         state: latest
 
-    - name: run stress 
-      command: < stress -c 2 --timeout 10m &
+    # - name: run stress 
+    #   ansible.builtin.shell: < stress -c 2 --timeout 10m &
